@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
     })()
 
     const weatherResult = await weather
-    res.send(weatherResult.days[0].icon)
+    res.send(weatherResult)
     return
 })
 
