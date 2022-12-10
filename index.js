@@ -12,7 +12,7 @@ const app = express();
 
 app.get('/', async (req, res) => {
     console.error(req.query)
-    const queryParams = req.query['loc']
+    const queryParams = req.query
     const weather = (async () => {
         const res = await new Promise((resolve) => {
             fetchWeather.callApi(queryParams,( resp) => {
