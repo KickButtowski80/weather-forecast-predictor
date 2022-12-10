@@ -1,29 +1,32 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1>Weather Info</h1>
+    <h4>{{ info }}</h4>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<script>
+export default {
+  data() {
+    return {
+      info: {},
+    };
+  },
+  mounted() {
+    this.fetchWeatherInfo();
+  },
+  methods: {
+    async fetchWeatherInfo() {
+      const response = await fetch("http://localhost:4000");
+      if (response.ok) {
+        this.info = await response.json();
+      } else {
+        console.log("http - error", response.status);
+      }
+    },
+  },
+};
+</script>
+
+<style>
 </style>
