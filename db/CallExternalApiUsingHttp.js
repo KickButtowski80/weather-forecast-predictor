@@ -1,7 +1,8 @@
 const https = require("https");
+const { validParams } = require('../utils/params')
 
 const result = (q, callback) => {
-    const { loc, unitGroup} = q
+    let { loc, unitGroup} = validParams(q)
     let url =
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${loc}?unitGroup=${unitGroup}&key=QD7EHC4LQ3SCJCF9L99PMYPBA&contentType=json`
     https.get(url, (req) => {
