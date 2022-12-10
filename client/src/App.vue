@@ -1,29 +1,14 @@
 <template>
-  <div>
-    <h1>Weather Info</h1>
-    <h4>{{ info }}</h4>
-  </div>
+  <main>
+    <weather-info></weather-info>
+  </main>
 </template>
 
 <script>
+import WeatherInfo from "./components/WeatherInfo.vue";
 export default {
-  data() {
-    return {
-      info: {},
-    };
-  },
-  mounted() {
-    this.fetchWeatherInfo();
-  },
-  methods: {
-    async fetchWeatherInfo() {
-      const response = await fetch("http://localhost:4000");
-      if (response.ok) {
-        this.info = await response.json();
-      } else {
-        console.log("http - error", response.status);
-      }
-    },
+  components: {
+    WeatherInfo,
   },
 };
 </script>
