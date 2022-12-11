@@ -45,10 +45,6 @@ export default {
   margin: 5px;
 }
 
-span {
-
-}
-
 input {
   height: 32px;
   width: 224px;
