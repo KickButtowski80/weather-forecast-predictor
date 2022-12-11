@@ -1,19 +1,29 @@
 <template>
   <main>
-    <search-box></search-box>
+    <search-form @send-location="gotLoc"></search-form>
     <hr>
-    <weather-info></weather-info>
+    <weather-info :location="loc"></weather-info>
   </main>
 </template>
 
 <script>
 import WeatherInfo from "./components/WeatherInfo.vue";
-import SearchBox from "./components/SearchBox.vue";
+import SearchForm from "./components/SearchForm.vue";
 export default {
   components: {
     WeatherInfo,
-    SearchBox,
+    SearchForm,
   },
+  data(){
+    return{
+      loc: '',
+    }
+  },
+  methods:{
+    gotLoc(loc){
+      this.loc = loc
+    }
+  }
 };
 </script>
 
