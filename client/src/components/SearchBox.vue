@@ -1,16 +1,22 @@
 <template>
   <div>
-    <h2>Search:</h2>
-    <input type="text" name="" id="">
+    <span>Search:</span>
+    <input type="text" name="" id="" />
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
+<style scoped>
+span {
+  font-size: 1.5rem;
+  font-style: oblique;
+  margin-right: 12px;
+}
+input {
+  height: 32px;
+  width: 224px;
+}
 </style>
