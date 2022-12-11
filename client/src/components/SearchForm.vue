@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <base-card>
     <input type="text" name="" id="" v-model="location" />
     <button @click="search">Search</button>
-  </div>
+  </base-card>
 </template>
 
 <script>
