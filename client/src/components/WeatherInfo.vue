@@ -1,7 +1,19 @@
 <template>
   <div>
     <h1>Weather Info</h1>
-    <h4>{{ info }}</h4>
+    <h3>Place: {{ info.address }}</h3>
+    <h3>Description: {{ info.description }}</h3>
+    <h3>Days</h3>
+    <ol v-for="day in info.days" :key="day.datetime">
+      <li>{{ day.datetime}}</li>
+      <li>Temperature {{day.temp}}</li>
+      <li>Feels Like: {{day.feelslike}}</li>
+      <li>Max Temp: {{day.tempmax}}</li>
+      <li>Min Temp: {{day.tempmin}}</li>
+      <li>Condition: {{day.condition}}</li>
+      <li>Description: {{day.description}}</li>
+    <li>{{day.icon}}</li>
+    </ol>
   </div>
 </template>
 
@@ -21,12 +33,16 @@ export default {
       if (response.ok) {
         this.info = await response.json();
       } else {
-        console.log("http - error", response.status);
+        consule.log("http - error", response.status);
       }
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style scoped>
+ol li{
+  list-style-type: none;
+  color: blue;
+}
+</style> 
