@@ -16,6 +16,7 @@ export default {
   methods: {
     search() {
       this.$emit("send-location", this.location);
+      this.location = ''
     },
   },
 };
