@@ -2,7 +2,7 @@
   <main>
     <search-form @send-location="gotLoc"></search-form>
     <hr />
-    <weather-info :location="loc"></weather-info>
+    <weather-info :lookcriteria="lookcriteria"></weather-info>
   </main>
 </template>
 
@@ -16,12 +16,12 @@ export default {
   },
   data() {
     return {
-      loc: "",
+      lookcriteria: {},
     };
   },
   methods: {
-    gotLoc(loc) {
-      this.loc = loc;
+    gotLoc(searchCriteria) {
+      this.lookcriteria = searchCriteria;
     },
   },
 };

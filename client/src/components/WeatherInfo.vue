@@ -23,25 +23,26 @@
 
 <script>
 export default {
-  props: ["location"],
+  props: ["lookcriteria"],
   data() {
     return {
       info: {},
-      specifiedLoc: this.location,
+      loc: this.lookcriteria.location,
+      unit: this.lookcriteria.unit,
     };
   },
   mounted() {
     this.fetchWeatherInfo();
   },
   watch: {
-    location(newV, oldV) {
+    lookcriteria(newV, oldV) {
       this.fetchWeatherInfo();
     },
   },
   methods: {
     async fetchWeatherInfo() {
       const response = await fetch(
-        `http://localhost:4000/?loc=${this.location}`
+        `http://localhost:4000/?loc=${this.loc}&unit=${this.unit}`
       );
       if (response.ok) {
         this.info = await response.json();
