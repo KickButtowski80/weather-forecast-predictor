@@ -1,1 +1,6 @@
-https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/los%2520angeles/last15days?elements=datetime%2CdatetimeEpoch%2Ctemp%2Ctempmax%2Ctempmin%2Cprecip%2Cwindspeed%2Cwindgust%2Cfeelslike%2Cfeelslikemax%2Cfeelslikemin%2Csealevelpressure%2Cstations%2Cdegreedays%2Caccdegreedays&include=fcst%2Cobs%2Chistfcst%2Cstats%2Chours&key=QD7EHC4LQ3SCJCF9L99PMYPBA&options=preview&contentType=json
+CSV content type
+https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?aggregateHours=24&combinationMethod=aggregate&startDateTime=2022-12-04T00%3A00%3A00&endDateTime=2022-12-11T00%3A00%3A00&maxStations=-1&maxDistance=-1&contentType=csv&unitGroup=us&locationMode=single&key=QD7EHC4LQ3SCJCF9L99PMYPBA&dataElements=default&locations=los%20angeles
+
+
+JSON content Type
+https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?aggregateHours=24&combinationMethod=aggregate&startDateTime=2022-12-04T00%3A00%3A00&endDateTime=2022-12-11T00%3A00%3A00&maxStations=-1&maxDistance=-1&contentType=json&unitGroup=us&locationMode=single&key=QD7EHC4LQ3SCJCF9L99PMYPBA&dataElements=default&locations=los%20angeles
