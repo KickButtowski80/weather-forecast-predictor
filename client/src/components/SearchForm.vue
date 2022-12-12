@@ -11,9 +11,10 @@
       
         <label for="m-units">Measurement Unit:</label>
 
-        <select name="cars" id="cars">
-          <option value="volvo">F, mi</option>
-          <option value="saab">C, km</option>
+        <select name="m-units" id="m-units" v-model="unitSelected">
+          <option disabled value="">Please select one</option>
+          <option value="us">F, mi</option>
+          <option value="base">C, km</option>
         </select>
     
     </div>
@@ -28,11 +29,16 @@ export default {
   data() {
     return {
       location: "",
+      unitSelected:""
     };
   },
   methods: {
     search() {
-      this.$emit("send-location", this.location);
+      const searchCriteria = {
+        location: this.location,
+        unit: this.unitSelected,
+      }
+      this.$emit("send-location", searchCriteria);
       this.location = "";
     },
   },

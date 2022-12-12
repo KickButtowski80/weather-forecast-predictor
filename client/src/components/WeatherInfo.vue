@@ -23,18 +23,19 @@
 
 <script>
 export default {
-  props: ["location"],
+  props: ["lookcriteria"],
   data() {
     return {
       info: {},
-      specifiedLoc: this.location,
+      loc: this.lookcriteria.location,
+      unit: this.lookcriteria.unit,
     };
   },
   mounted() {
     this.fetchWeatherInfo();
   },
   watch: {
-    location(newV, oldV) {
+    lookcriteria(newV, oldV) {
       this.fetchWeatherInfo();
     },
   },
