@@ -1,22 +1,23 @@
 <template>
   <base-card>
+  
     <h1>Today Forcast</h1>
     <div>
       <base-card>
-        <h3>Place: {{ info.address }}</h3>
-        <h3>General Description: {{ info.description }}</h3>
+        <h3>Place: {{ place}}</h3>
+        <h3>General Description: {{ todayInfo.description }}</h3>
       </base-card>
 
       <base-card>
         <ol>
-          <li>{{ info.datetime }}</li>
-          <li>Temperature {{ info.temp }}</li>
-          <li>Feels Like: {{ info.feelslike }}</li>
-          <li>Max Temp: {{ info.tempmax }}</li>
-          <li>Min Temp: {{ info.tempmin }}</li>
-          <li>Condition: {{ info.conditions }}</li>
-          <li>Description: {{ info.description }}</li>
-          <li>{{ info.icon }}</li>
+          <li>{{todayInfo.datetime }}</li>
+          <li>Temperature {{ todayInfo.temp }}</li>
+          <li>Feels Like: {{ todayInfo.feelslike }}</li>
+          <li>Max Temp: {{ todayInfo.tempmax }}</li>
+          <li>Min Temp: {{ todayInfo.tempmin }}</li>
+          <li>Condition: {{ todayInfo.conditions }}</li>
+          <li>Description: {{ todayInfo.description }}</li>
+          <li>{{ todayInfo.icon }}</li>
         </ol>
       </base-card>
     </div>
@@ -27,7 +28,8 @@
 export default {
   data() {
     return {
-      info: "",
+      todayInfo: "",
+      place: '',
     };
   },
   mounted() {
@@ -37,7 +39,11 @@ export default {
     async fetchWeatherInfo() {
       const response = await fetch(`http://localhost:4000/today-forcast`);
       if (response.ok) {
-        this.info = await response.json();
+        const data = await response.json();
+        const { place , todayInfo } = data
+        this.place = place;
+        this.todayInfo = todayInfo;
+
       } else {
         console.log("http - error", response.status);
       }
