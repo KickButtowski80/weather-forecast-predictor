@@ -6,10 +6,10 @@
           <router-link to="/">Home</router-link>
         </li>
         <li>
-          <router-link to="/current-forcast">Current Forcast</router-link>
+          <router-link to="/today-forcast">Today Forcast</router-link>
         </li>
         <li>
-          <router-link to="/today-forcast">Today Forcast</router-link>
+          <router-link to="/15-days-forcast">15 days Forcast</router-link>
         </li>
       </ul>
     </nav>

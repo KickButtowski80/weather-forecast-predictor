@@ -1,5 +1,5 @@
 import HomePage from '../src/Views/HomePage.vue'
-import CurrentForcast from '../src/Views/CurrentForcast.vue'
+import FifteenDaysForcast from '../src/Views/FifteenDaysForcast.vue'
 import TodayFrocast from '../src/Views/TodayForcast.vue'
 
 const routes = [
@@ -9,9 +9,9 @@ const routes = [
         component: HomePage
     },
     {
-        path: '/current-forcast',
-        name: 'CurrentForcast',
-        component: CurrentForcast
+        path: '/15-days-forcast',
+        name: '15DaysForcast',
+        component: FifteenDaysForcast
     },
     {
         path: '/today-forcast',
