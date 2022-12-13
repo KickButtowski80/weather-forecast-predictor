@@ -28,4 +28,9 @@ export default {
 .col {
   flex-direction: column;
 }
+
+ol li {
+  list-style-type: none;
+  color: blue;
+}
 </style>
