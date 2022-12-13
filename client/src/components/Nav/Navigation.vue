@@ -8,6 +8,9 @@
         <li>
           <router-link to="/current-forcast">Current Forcast</router-link>
         </li>
+        <li>
+          <router-link to="/today-forcast">Today Forcast</router-link>
+        </li>
       </ul>
     </nav>
   </header>
