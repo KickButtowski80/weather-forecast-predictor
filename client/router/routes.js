@@ -1,7 +1,7 @@
 import HomePage from '../src/Views/HomePage.vue'
 import FifteenDaysForcast from '../src/Views/FifteenDaysForcast.vue'
 import TodayFrocast from '../src/Views/TodayForcast.vue'
-
+import NotFound from '../src/components/NotFound.vue'
 const routes = [
     {
         path: '/',
@@ -17,6 +17,10 @@ const routes = [
         path: '/today-forcast',
         name: 'TodayForcast',
         component: TodayFrocast,
+    },
+    {
+        path: '/:notFound(.*)',
+        component: NotFound 
     }
 ]
 
