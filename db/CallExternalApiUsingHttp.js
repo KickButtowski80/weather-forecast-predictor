@@ -1,5 +1,4 @@
 const https = require("https");
-const { validParams } = require('../utils/tools')
 
 const result = (q, callback) => {
     let { loc, unitGroup} = q
