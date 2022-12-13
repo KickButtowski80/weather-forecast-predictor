@@ -10,16 +10,16 @@ app.use(cors())
 
 app.get('/', async (req, res) => {
     console.error(req.query)
-    const queryParams = validParams(req.query)
-    const weather = await fetchingData(queryParams)
+    // const queryParams = validParams(req.query)
+    const weather = await fetchingData(req.query)
     const weatherResult = await weather;
     res.send(weatherResult)
     return
 })
 
 app.get('/today-forcast', async(req, res) =>{
-    const queryParams = validParams(req.query)
-    const weather = await fetchingData(queryParams)
+    // const queryParams = validParams(req.query)
+    const weather = await fetchingData(req.query)
     const weatherResult = await weather;
     res.send(weatherResult.days[1])
     return
