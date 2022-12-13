@@ -1,5 +1,5 @@
 .DS_Store
-node_modules*
+node_modules
 /dist
 /coverage
 /tests/e2e/videos/
@@ -30,4 +30,3 @@ yarn-error.log*
 *.orig
 
 .env.development
-

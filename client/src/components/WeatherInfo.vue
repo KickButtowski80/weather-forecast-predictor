@@ -42,7 +42,7 @@ export default {
   methods: {
     async fetchWeatherInfo() {
       const response = await fetch(
-        `http://localhost:4000/?loc=${this.lookcriteria.location}&unit=${this.lookcriteria.unit}`
+        `https://4000-kickbuttows-weatherfore-5e8oxfdfyjo.ws-us78.gitpod.io/?loc=${this.lookcriteria.location || ''}&unit=${this.lookcriteria.unit || ''}`
       );
       if (response.ok) {
         this.info = await response.json();

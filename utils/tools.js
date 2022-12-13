@@ -11,15 +11,16 @@ const validParams = (paramsQ) => {
     let { loc, unitGroup } = paramsQ
     
     loc = (loc !== 'undefined' && loc)  || 'los angeles'
-    unitGroup = (unitGroup !== 'undefiend' && unitGroup)  || 'us'
+    unitGroup = (unitGroup !== 'undefined' && unitGroup)  || 'us'
     paramsQ = { ...{ loc, unitGroup } }
     return paramsQ
 }
 
-const fetchingData = async (queryParams) => {
+const fetchingData = async ({loc='los angeles', unitGroup='us'}) => {
+    console.log(`fetching ${loc} in ${unitGroup}`);
     const weather = (async () => {
         const res = await new Promise((resolve) => {
-            fetchWeather.callApi(queryParams,( resp) => {
+            fetchWeather.callApi({loc,unitGroup},( resp) => {
                 resolve(resp)
             })
         })

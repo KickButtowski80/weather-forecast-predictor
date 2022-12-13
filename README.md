@@ -8,3 +8,11 @@
      pnpm dev
 #### frondend is in src/client for running type
      pnpm dev
+
+
+## This is an app that does the following:
+- [ ] Displays Weather and forcast data for the next X days (however far you can get)
+- [ ] Stores data every data, both for forecast and actual data
+- [ ] Users can add cities to be stored
+- [ ] Starts with 10 largest cities in the US
+- [ ] Shows a graph of accuracy in predictions over the last 30days, 6months, and 1 year
