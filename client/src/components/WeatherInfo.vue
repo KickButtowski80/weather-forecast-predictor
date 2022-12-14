@@ -27,8 +27,6 @@ export default {
   data() {
     return {
       info: {},
-      loc: this.lookcriteria.location,
-      unit: this.lookcriteria.unit,
     };
   },
   mounted() {
@@ -39,15 +37,24 @@ export default {
       this.fetchWeatherInfo();
     },
   },
+  computed: {
+    loc() {
+      // debugger;
+      // return this.lookcriteria.
+    },
+  },
   methods: {
     async fetchWeatherInfo() {
+      const loc = this.lookcriteria.location || "los angeles";
+      const unit = this.lookcriteria.unit || "us";
       const response = await fetch(
-        `https://localhost:4000/?loc=${this.lookcriteria.location || ''}&unit=${this.lookcriteria.unit || ''}`
+        `http://localhost:4000/?loc=${loc}&unit=${unit}`
       );
+
       if (response.ok) {
         this.info = await response.json();
       } else {
-        consule.log("http - error", response.status);
+        console.log("http - error", response.status, response.message);
       }
     },
   },
@@ -55,5 +62,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style> 

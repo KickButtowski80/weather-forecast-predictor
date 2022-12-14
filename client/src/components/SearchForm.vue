@@ -38,6 +38,7 @@ export default {
         location: this.location,
         unit: this.unitSelected,
       }
+      
       this.$emit("send-location", searchCriteria);
       this.location = "";
     },

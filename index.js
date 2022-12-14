@@ -16,10 +16,9 @@ app.get('/', async (req, res) => {
 
 
 app.get('/today-forcast', async (req, res) => {
-
     const weather = await fetchingData(req.query)
     const weatherResult = await weather;
-    res.send({ place: weatherResult.address , todayInfo: weatherResult.days[0]})
+    res.send({ place: weatherResult.address, todayInfo: weatherResult.days[0] })
     return
 
 })
