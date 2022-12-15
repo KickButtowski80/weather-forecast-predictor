@@ -20,12 +20,8 @@ const fetchingData = async ({ loc = 'los angeles', unitGroup = 'us' }) => {
     const weather = (async () => {
         const res = await new Promise((resolve, reject) => {
             fetchWeather.callApi({ loc, unitGroup }, (resp) => {
-                // if (resp.err)
-                //     return reject(resp)
                 resolve(resp)
             })
-        }).catch((err) => {
-            return err
         })
         return JSON.parse(res)
     })()
