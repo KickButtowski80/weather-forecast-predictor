@@ -6,7 +6,7 @@ const result = (q, callback) => {
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${loc}?unitGroup=${unitGroup}&key=QD7EHC4LQ3SCJCF9L99PMYPBA&contentType=json`
     https.get(url, (req) => {
         let data = '';
-       
+
         req.on('data', (chunk) => {
             data += chunk
         })
@@ -19,7 +19,6 @@ const result = (q, callback) => {
         console.info(`${url}`)
     }).on('error', (err) => {
         console.log("Error:", err.message)
-        return callback({ err: err.message })
     })
 }
 
