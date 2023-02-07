@@ -42,7 +42,6 @@ const geoloc = async () => {
 
 }
 
-geoloc()
 module.exports = {
     validParams,
     fetchingData,
