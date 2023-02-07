@@ -1,4 +1,5 @@
 const fetchWeather = require('../db/CallExternalApiUsingHttp')
+const axios = require("axios");
 
 const todayDate = () => {
     const d = new Date();
@@ -15,11 +16,11 @@ const validParams = (paramsQ) => {
     return paramsQ
 }
 
-const fetchingData = async ({ loc = 'los angeles', unitGroup = 'us' }) => {
-    console.log(`fetching ${loc} in ${unitGroup}`);
+const fetchingData = async ({ latitude, longitude, address, unitGroup }) => {
+    console.log(`fetching ${address} in ${unitGroup} ${latitude}---${longitude}`);
     const weather = (async () => {
         const res = await new Promise((resolve, reject) => {
-            fetchWeather.callApi({ loc, unitGroup }, (resp) => {
+            fetchWeather.callApi({latitude, longitude, address, unitGroup }, (resp) => {
                 resolve(resp)
             })
         })
@@ -31,9 +32,20 @@ const fetchingData = async ({ loc = 'los angeles', unitGroup = 'us' }) => {
 
 }
 
+const geoloc = async () => {
+    const options = {
+        method: 'GET',
+        url: "http://ipwho.is/"
+    };
+    const response = await axios.request(options)
+    return response.data
 
+}
+
+geoloc()
 module.exports = {
     validParams,
     fetchingData,
-    todayDate
+    todayDate,
+    geoloc
 }

@@ -37,12 +37,12 @@ export default {
   },
   methods: {
     async fetchWeatherInfo() {
-      const response = await fetch(`http://localhost:4000/today-forcast`);
+      const response = await fetch(`http://localhost:3000/api/v1/forcast/current-loc`);
       if (response.ok) {
         const data = await response.json();
-        const { place , todayInfo } = data
-        this.place = place;
-        this.todayInfo = todayInfo;
+        const { address , days } = data.weatherInfo
+        this.place = address;
+        this.todayInfo = days[0];
 
       } else {
         console.log("http - error", response.status);

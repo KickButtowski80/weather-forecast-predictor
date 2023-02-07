@@ -1,9 +1,13 @@
 const https = require("https");
 
 const result = (q, callback) => {
-    let { loc, unitGroup } = q
+    let { latitude, longitude,  address, unitGroup } = q
+    const addressOrCordinate = address || (latitude  + "," + longitude)
+    let ug = unitGroup || 'us'
     let url =
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${loc}?unitGroup=${unitGroup}&key=QD7EHC4LQ3SCJCF9L99PMYPBA&contentType=json`
+        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${addressOrCordinate}?unitGroup=${ug}&key=QD7EHC4LQ3SCJCF9L99PMYPBA&contentType=json`
+
+
     https.get(url, (req) => {
         let data = '';
 
