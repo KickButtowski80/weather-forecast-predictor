@@ -14,16 +14,20 @@ const currentLocForcast = async (req, res, next) => {
     if (weather.err) {
         weather.err = 'No Weather... ☀️Info...🤷 please check lat and long coordinate 👍'
         next(new NotFoundError(weather.err))
-
     }
     const weatherInfo = await weather
     res.status(StatusCodes.OK).json({ weatherInfo })
 }
 
-const specificLocForcast = async (req, res) => {
+const specificLocForcast = async (req, res, next) => {
     const weather = await fetchingData(req.query)
     const weatherInfo = await weather;
     const { address, days } = weatherInfo
+    if (address === undefined) {
+        weather.err = '🚑...address cannot be empty'
+        next(new BadRequestError(weather.err))
+        return
+    }
     res.status(StatusCodes.OK).json({
         place: address,
         todayInfo: days[0]
