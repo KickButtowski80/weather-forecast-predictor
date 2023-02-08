@@ -17,10 +17,9 @@ const validParams = (paramsQ) => {
 }
 
 const fetchingData = async ({ latitude, longitude, address, unitGroup }) => {
-    console.log(`fetching ${address} in ${unitGroup} ${latitude}---${longitude}`);
     const weather = (async () => {
         const res = await new Promise((resolve, reject) => {
-            fetchWeather.callApi({latitude, longitude, address, unitGroup }, (resp) => {
+            fetchWeather.callApi({ latitude, longitude, address, unitGroup }, (resp) => {
                 resolve(resp)
             })
         })
