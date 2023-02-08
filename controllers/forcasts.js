@@ -5,8 +5,7 @@ const { BadRequestError, NotFoundError } = require('../errors')
 const currentLocForcast = async (req, res, next) => {
     const info = geoloc()
     const { latitude, longitude, city } = await info
-    console.log(latitude, longitude, city)
-    req.query1 = {
+    req.query = {
         latitude: latitude,
         longitude: longitude,
         address: city,
