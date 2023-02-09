@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     gotLoc(searchCriteria) {
-      // debugger;
       this.lookcriteria = searchCriteria;
     },
   },

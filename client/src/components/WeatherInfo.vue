@@ -2,11 +2,11 @@
   <div>
     <base-card>
       <h1>Weather Info</h1>
-      <h3>Place: {{ info.address }}</h3>
-      <h3>General Description: {{ info.description }}</h3>
+      <h3>Place: {{ info.place }}</h3>
+      <h3>General Description: {{ info.todayInfo.description }}</h3>
       <h3>Days</h3>
     </base-card>
-    <ol v-for="day in info.days" :key="day.datetime">
+    <ol v-for="day in info.todayInfo.days" :key="day.datetime">
       <base-card>
         <li>{{ day.datetime }}</li>
         <li>Temperature {{ day.temp }}</li>
@@ -44,11 +44,11 @@ export default {
     },
   },
   methods: {
-    async fetchWeatherInfo() {
+    async fetchWeatherInfo() {      
       const loc = this.lookcriteria.location || "los angeles";
       const unit = this.lookcriteria.unit || "us";
       const response = await fetch(
-        `http://localhost:4000/?loc=${loc}&unit=${unit}`
+        `http://localhost:3000/api/v1/forcast/specific-loc?address=${loc}&unit=${unit}`
       );
 
       if (response.ok) {
