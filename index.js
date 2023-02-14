@@ -4,10 +4,9 @@ const app = express();
 
 app.use(express.json())
 app.use(cors())
-
+require('express-async-errors');
 
 const forcastRouter = require('./routes/forcasts')
-
 app.use('/api/v1/forcast', forcastRouter)
 
 const errorHandlerMiddleware = require('./middleware/error-handler')

@@ -20,7 +20,12 @@ const currentLocForcast = async (req, res, next) => {
 }
 
 const specificLocForcast = async (req, res, next) => {
+
     const weather = await fetchingData(req.query)
+    console.log(req.query)
+    if (weather.status === 401) {
+         throw new BadRequestError('😟...exceed your daily retreving weather info')
+    }
     const weatherInfo = await weather;
     const { address, days } = weatherInfo
     if (address === undefined) {
@@ -30,7 +35,7 @@ const specificLocForcast = async (req, res, next) => {
     }
     res.status(StatusCodes.OK).json({
         place: address,
-        todayInfo: days[0]
+        todayInfo: days
     })
 }
 
